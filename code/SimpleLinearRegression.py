@@ -1,7 +1,7 @@
 # coding=utf-8
 # @Time:2022/2/26 4:04 PM
 # @Author:Ray
-# @File:SimpleLinearRegression1.py
+# @File:SimpleLinearRegression.py
 
 #
 import numpy as np
@@ -45,5 +45,16 @@ class SimpleLinearRegression1:
         assert x_predict.ndim == 1, "simple linear regressor can only solve single feature training data"
         assert self.a_ is not None and self.b_ is not None, "must fit before predict"
 
-        return np.array([self.predict(x) for x in x_predict])
+        return np.array([self._predict(x) for x in x_predict])
+
+    def _predict(self, x_single):
+        """
+        :param x_single:  给定单个待预测的数据x_single。返回x的预测结果
+        :return:
+        """
+        return self.a_ * x_single + self.b_
+
+    def __repr__(self):
+        return "SimpleLinearRegression1"
+
         
