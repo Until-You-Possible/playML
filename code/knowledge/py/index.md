@@ -50,3 +50,36 @@ str(1.0/7.0)
 repr(1.0/7.0)
 '0.14285714285714285'
 ```
+
+4: python中的zip方法
+
+zip()函数是py的内置函数之一 他可以将多个序列(列表，元组，集合，字典，字符串，以及range()) "压缩" 成一个zip对象，其实所谓的压缩就是将这些
+序列中对应位置的元素重新组合，生成一个新的元组
+
+```python
+
+zip(iterable, ....)
+# 其中 iterable。表示多个列表。tuple dict, set str 甚至可以是range()区间
+
+my_list = [11,12,13]
+my_tuple = (21,22,23)
+
+print([x for x in zip(my_list,my_tuple)])
+
+my_dic = {31:2,32:4,33:5}
+my_set = {41,42,43,44}
+
+print([x for x in zip(my_dic)])
+
+my_pychar = "python"
+my_shechar = "shell"
+
+print([x for x in zip(my_pychar,my_shechar)])
+
+```
+
+
+
+
+
+
