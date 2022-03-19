@@ -3,6 +3,8 @@
 # @Author:Ray
 # @File:LinearRegression.py.py
 import numpy as np
+
+
 # from .metrics import r2_score
 
 class LinearRegression:
@@ -26,7 +28,7 @@ class LinearRegression:
         """给定待预测的数据集 X_predict，返回表示X_predict的结果向量 """
         assert self.interception is not None and self.coef is not None, "Must fit before predict"
         assert X_predict.shape[1] == len(self.coef), "the feature number of X_predict must be equal to X_train"
-        X_b = np.hstack([np.ones((len(X_predict, 1)), X_predict])
+        X_b = np.hstack([np.ones((len(X_predict), 1)), X_predict])
         return X_b.dot(self._theta)
 
     def score(self, X_test, y_test):
