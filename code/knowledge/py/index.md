@@ -78,7 +78,22 @@ print([x for x in zip(my_pychar,my_shechar)])
 
 ```
 
+***__name__***
 
+```text
+
+__name__属性
+所有的模块都有一个内置的属性__name__，__name__的值取决于如何使用这个模块
+eg: 有一个test.py的模块。包含__name__, 当导入模块时候， __name__都是模块文件名
+print(__name__) 会得到 test
+
+但是， 如果将其作为脚本使用，__name__就是一个特殊的值 __main__
+eg python test.py
+print(__name__) => __main__
+
+总结下： 当模块导入时，模块名称是文件名，而当模块作为脚本独立运行时，名称为__main__
+
+```
 
 
 
