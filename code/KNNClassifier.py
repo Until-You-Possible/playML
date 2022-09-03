@@ -27,3 +27,14 @@ class KNNClassifier:
         return np.array(y_predict)
 
     def _predict(self, x):
+        """给定单个待预测的值x, 返回x的预测结果"""
+        assert x.shape[0] == self._X_train.shape[1], "the feature number of x must be equal to X_train"
+        distance = [sqrt(np.sum((x_train - x) ** 2)) for x_train in self._X_train]
+        nearest = np.argsort(distance)
+        topK_y = [self._y_train[i] for i in nearest[:self.k]]
+        votes = Counter(topK_y)
+        return votes.most_common(1)[0][0]
+
+    def __repr__(self):
+        return "KNN(k=%d)" % self.k
+
